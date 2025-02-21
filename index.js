@@ -71,7 +71,6 @@ app.get("/files", getFilesByType);
 app.get("/folders/:folderId/files/metadata", getFileMetadata);
 
 if (process.env.NODE_ENV !== "test") {
-  app.get();
   sequelize
     .authenticate()
     .then(() => console.log("Database connection successfully established."))
