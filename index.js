@@ -32,11 +32,11 @@ app.post("/folder/create", createFolder);
 //API Endpoint:- http://localhost:3000/folders/:folderId
 app.put("/folders/:folderId", updateFolder);
 
-//Delete folder and all its files.
+//Delete folder and all its files from cloudinary.
 //API Endpoint:- http://localhost:3000/folders/:folderId
 app.delete("/folders/:folderId", deleteFolder);
 
-//Upload File
+//Upload File to cloudinary via
 //API Endpoint:- http://localhost:3000/folders/:folderId/files
 app.use("/folders", fileRouter);
 
@@ -58,7 +58,6 @@ app.get("/folders/:folderId/files", getFiles);
 
 // Sort Files by Size
 //API Endpoint:- http://localhost:3000/folders/:folderId/filesBySort?sort=size
-
 //Sort Files by Recency
 //API Endpoint:- http://localhost:3000/folders/:folderId/filesBySort?sort=uploadedAt
 app.get("/folders/:folderId/filesBySort", sortFile);
@@ -72,6 +71,7 @@ app.get("/files", getFilesByType);
 app.get("/folders/:folderId/files/metadata", getFileMetadata);
 
 if (process.env.NODE_ENV !== "test") {
+  app.get();
   sequelize
     .authenticate()
     .then(() => console.log("Database connection successfully established."))
